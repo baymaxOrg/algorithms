@@ -1,4 +1,4 @@
-package mysort
+package sorts
 
 func HeapSort(nums []int) {
 	BuildMinHeap(nums)

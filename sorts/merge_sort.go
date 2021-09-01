@@ -1,4 +1,4 @@
-package mysort
+package sorts
 
 func MergeSort(nums []int) {
 	merge_sort(nums, 0, len(nums)-1)
