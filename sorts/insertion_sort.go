@@ -7,10 +7,9 @@ func InsertionSort(nums []int) []int {
 
 func insertionSort(nums []int) []int {
 	for i := 1; i < len(nums); i ++ {
-		tmp := nums[i]
+		current := nums[i]
 		j := i - 1
-		for j >= 0 && tmp < nums[j] {
-			//if
+		for j >= 0 && current < nums[j] {
 			nums[j], nums[j+1] = nums[j+1], nums[j]
 			j--
 		}
