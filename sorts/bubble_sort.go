@@ -1,7 +1,10 @@
-package mysort
+package sorts
 
 // BubbleSort 冒泡排序
 func BubbleSort(nums []int) {
+	if nums	== nil || len(nums) == 0 {
+		return
+	}
 	bubbleSort(nums)
 }
 

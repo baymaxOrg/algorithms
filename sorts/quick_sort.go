@@ -1,4 +1,4 @@
-package mysort
+package sorts
 
 func QuickSort(nums []int) {
 	quickSort(nums, 0, len(nums)-1)

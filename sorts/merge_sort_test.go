@@ -1,8 +1,9 @@
-package mysort_test
+package sorts_test
 
 import (
-	mysort "gitee.com/RocsSun/algorithms/mySort"
 	"testing"
+
+	mysort "gitee.com/RocsSun/algorithms/sorts"
 )
 
 func TestMergeSort(t *testing.T) {
@@ -10,7 +11,7 @@ func TestMergeSort(t *testing.T) {
 	mysort.MergeSort(values)
 	for i, v := range values {
 		if values[i] != v {
-			t.Error("merge sort failed")
+			t.Error("merge sorts failed")
 		}
 	}
 }
@@ -19,6 +20,6 @@ func TestMergeSort1(t *testing.T) {
 	values := []int{4, 2, 2, 1, 0}
 	mysort.MergeSort(values)
 	if values[0] != 0 && values[1] != 1 && values[2] != 2 && values[3] != 2 && values[0] != 4 {
-		t.Error("merge sort failed")
+		t.Error("merge sorts failed")
 	}
 }

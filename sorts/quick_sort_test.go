@@ -1,8 +1,9 @@
-package mysort_test
+package sorts_test
 
 import (
-	mysort "gitee.com/RocsSun/algorithms/mySort"
 	"testing"
+
+	mysort "gitee.com/RocsSun/algorithms/sorts"
 )
 
 func TestQuickSort1(t *testing.T) {
@@ -10,7 +11,7 @@ func TestQuickSort1(t *testing.T) {
 	mysort.QuickSort(values)
 	for i, v := range values {
 		if values[i] != v {
-			t.Error("quick sort failed")
+			t.Error("quick sorts failed")
 		}
 	}
 }
