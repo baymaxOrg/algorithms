@@ -1,40 +1,45 @@
 package sorts
 
-func MergeSort(nums []int) {
-	merge_sort(nums, 0, len(nums)-1)
+// MergeSort function
+func MergeSort(nums []int) []int {
+	return mergeSort(nums)
 }
 
-func merge_sort(nums []int, left, right int) {
-	if left < right {
-		mid := int((left + right) / 2)
-		merge_sort(nums, left, mid)
-		merge_sort(nums, mid+1, right)
-		merge(nums, left, mid, right)
+// mergeSort recursive make subslice order, and merge.
+func mergeSort(nums []int) []int {
+	if len(nums) < 2 {
+		return nums
 	}
+	middle := len(nums) / 2
+	nums1 := mergeSort(nums[:middle])
+	nums2 := mergeSort(nums[middle:])
+	return merge(nums1, nums2)
 }
 
-func merge(nums []int, left, mid, right int) {
-	i, j := left, mid+1
-	var tmp []int
-	for i <= mid && j <= right {
-		if nums[i] <= nums[j] {
-			tmp = append(tmp, nums[i])
+// merge merge two order silce
+func merge(nums1, nums2 []int) []int {
+	var i = 0
+	var j = 0
+	var tmp []int = make([]int, len(nums1)+len(nums2))
+
+	for i < len(nums1) && j < len(nums2) {
+		if nums1[i] < nums2[j] {
+			tmp[i+j] = nums1[i]
 			i++
 		} else {
-			tmp = append(tmp, nums[j])
+			tmp[i+j] = nums2[j]
 			j++
 		}
 	}
-	for i <= mid {
-		tmp = append(tmp, nums[i])
+
+	for i < len(nums1) {
+		tmp[i+j] = nums1[i]
 		i++
 	}
-	for j <= right {
-		tmp = append(tmp, nums[j])
+
+	for j < len(nums2) {
+		tmp[i+j] = nums1[j]
 		j++
 	}
-
-	for t := left; t <= right; t++ {
-		nums[t] = tmp[t-left]
-	}
+	return tmp
 }
