@@ -1,15 +1,15 @@
 package sorts
 
 // BubbleSort 冒泡排序
-func BubbleSort(nums []int) {
-	if nums	== nil || len(nums) == 0 {
-		return
+func BubbleSort(nums []int) []int {
+	if len(nums) <= 1 {
+		return nums
 	}
-	bubbleSort(nums)
+	return bubbleSort(nums)
 }
 
 // bubbleSort 冒泡排序的具体实现
-func bubbleSort(nums []int) {
+func bubbleSort(nums []int) []int {
 	// 控制便利的次数为slice的长度。
 	for i := 0; i < len(nums); i++ {
 		// 遍历无序区
@@ -20,4 +20,5 @@ func bubbleSort(nums []int) {
 			}
 		}
 	}
+	return nums
 }
